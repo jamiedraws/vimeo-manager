@@ -1,0 +1,53 @@
+{
+  "name": "dtm-build",
+  "version": "1.0.0",
+  "description": "Build script for TypeScript and Sass",
+  "main": "cia.js",
+  "scripts": {
+    "webpack:prod": "cross-env NODE_ENV=production webpack",
+    "webpack:dev": "webpack",
+    "sass:css": "sass -w css",
+    "cia:version": "node cia.js -p versions",
+    "cia:history": "node cia.js -p history",
+    "cia:categories": "node cia.js -p categories"
+  },
+  "author": "Digital Target Marketing",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/luxon": "^2.0.5",
+    "@types/vimeo__player": "^2.10.1",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.21.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.7",
+    "extract-loader": "^5.1.0",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.4.0",
+    "squoosh-webpack-plugin": "^2.1.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.13",
+    "@types/youtube": "0.0.46",
+    "@vimeo/player": "^2.16.1",
+    "element-closest": "^3.0.2",
+    "inquirer": "^8.2.5",
+    "luxon": "^2.3.0",
+    "minimist": "^1.2.7",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.7",
+    "selenium-webdriver": "^4.1.1",
+    "style-dictionary": "^3.1.1",
+    "yt-player": "^3.5.0"
+  }
+}
