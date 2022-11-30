@@ -1,6 +1,8 @@
 const path = require("path");
 const glob = require("glob");
 const autoprefixer = require("autoprefixer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 
 // Tells webpack to transpile code down to ES5 to serve legacy browsers. For webpack to compile code upwards to modern browsers, set the boolean to false instead.
 const legacy = true;
@@ -61,11 +63,18 @@ if (!legacy) {
 module.exports = {
     target: target,
     mode: mode,
-    entry: createEntryContext(inputFilename, /(ts)/i),
+    entry: createEntryContext(inputFilename, /(ts|scss)/i),
     output: {
         filename: `./[name]/${outputFilename}`,
         path: path.resolve(__dirname),
-        chunkFormat: "array-push"
+        chunkFormat: "array-push",
+        publicPath: "/"
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, "/")
+        },
+        hot: true
     },
     watch: true,
     watchOptions: {
@@ -76,12 +85,8 @@ module.exports = {
         rules: [
             {
                 test: /\.s[ac]ss$/i,
-                type: "asset/resource",
-                generator: {
-                    filename: "[path][name].css"
-                },
                 use: [
-                    { loader: "extract-loader" },
+                    MiniCssExtractPlugin.loader,
                     { loader: "css-loader" },
                     {
                         loader: "postcss-loader",
@@ -109,8 +114,8 @@ module.exports = {
                 include: path.resolve(__dirname),
                 exclude: /node_modules/,
                 options: {
-                    onlyCompileBundledFiles: true,
-                    transpileOnly: true
+                    transpileOnly: true,
+                    onlyCompileBundledFiles: true
                 }
             },
             {
@@ -143,6 +148,12 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new RemoveEmptyScriptsPlugin(),
+        new MiniCssExtractPlugin({
+            filename: `[name]/${inputFilename}.css`
+        })
+    ],
     resolve: {
         extensions: [".scss", ".sass", ".ts", ".js"],
         alias: {

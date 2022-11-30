@@ -3152,7 +3152,7 @@ var __webpack_exports__ = {};
 /* harmony import */ var Shared_ts_utils_vimeo_manager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Shared/ts/utils/vimeo-manager */ "../shared/ts/utils/vimeo-manager.ts");
 
 var vm = new Shared_ts_utils_vimeo_manager__WEBPACK_IMPORTED_MODULE_0__["default"]();
-console.log(vm);
+console.log("hello");
 
 }();
 /******/ })()
