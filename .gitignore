@@ -1,0 +1,7 @@
+node_modules
+CampaignStarterKit.bat
+Shared
+tsconfig.json
+package-lock.json
+package.json
+.browserslistrc
