@@ -1,7 +1,8 @@
 node_modules
 CampaignStarterKit.bat
 Shared
-tsconfig.json
+.browserslistrc
 package-lock.json
 package.json
-.browserslistrc
+tsconfig.json
+webpack.config.js
