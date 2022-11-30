@@ -1,3 +1,6 @@
 node_modules
 CampaignStarterKit.bat
 Shared
+.browserslistrc
+package-lock.json
+package.json
